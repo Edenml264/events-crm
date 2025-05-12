@@ -26,15 +26,29 @@ crm-project/
 
 ## Fases y Diagrama de Gantt
 
-| Fase | Descripción | Estado | Fecha Inicio | Fecha Fin |
-|------|-------------|--------|--------------|-----------|
-| 1    | Planificación y Diseño        | ⬜ |            |           |
-| 2    | Configuración del Proyecto    | ⬜ |            |           |
-| 3    | Desarrollo de Módulos Base    | ⬜ |            |           |
-| 4    | Integración y Mejoras         | ⬜ |            |           |
-| 5    | Despliegue                    | ⬜ |            |           |
+| Fase | Descripción                | Estado | Fecha Inicio | Fecha Fin |
+|------|----------------------------|--------|--------------|-----------|
+| 1    | Planificación y Diseño     | 🟦     | 2025-05-12   |           |
+| 2    | Configuración del Proyecto | 🟦     | 2025-05-12   |           |
+| 3    | Desarrollo de Módulos Base | 🟦     | 2025-05-12   |           |
+| 4    | Integración y Mejoras      | ⬜     |              |           |
+| 5    | Despliegue                 | ⬜     |              |           |
 
 **Leyenda:** ⬜ Pendiente | 🟦 En Progreso | ✅ Terminado
+
+## Progreso por Fase
+
+### Fase 1: Planificación y Diseño
+- Objetivos, alcance y tecnologías definidos en `PROJECT-PLAN.md`.
+- Estructura de carpetas y cronograma establecida.
+- Diagrama ER y modelos principales documentados.
+- Pendiente (opcional): agregar requerimientos no funcionales y flujos de usuario para mayor detalle.
+
+### Fase 2: Configuración del Proyecto
+- Repositorio y estructura de carpetas inicializada.
+- Backend (Laravel) instalado y funcional, con migraciones, factories y seeders verificados.
+- Base de datos conectada y operativa.
+- Pendiente: inicializar frontend (Astro JS) y agregar instrucciones de instalación/arranque si aún no existen.
 
 ### Diagrama de Gantt (Ejemplo Markdown)
 
@@ -337,6 +351,14 @@ Ventajas:
 
 ## Recursos de Referencia
 - Imágenes y documentos en `/project-idea`
+
+## Avances Recientes (12 mayo 2025)
+
+- **Migraciones completadas:** Todas las tablas principales y pivote creadas con relaciones correctas (clientes, contactos, artículos/servicios, paquetes, rentas, cotizaciones, reparaciones, etc.).
+- **Factories personalizados:** Implementados para todos los modelos clave, generando datos de prueba realistas y variados.
+- **Seeders implementados y verificados:** Seeders poblando la base de datos con datos coherentes y relaciones entre entidades (clientes con contactos, rentas con detalles, cotizaciones con artículos y paquetes, etc.).
+- **Base de datos poblada exitosamente:** Proceso de `migrate:fresh --seed` ejecutado sin errores, validando la integridad de las relaciones y la lógica de los seeders.
+- **Próximos pasos:** Pruebas unitarias, endpoints API, integración frontend y nuevas funcionalidades.
 
 ## Notas
 - Actualiza este archivo conforme avances.
