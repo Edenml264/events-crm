@@ -14,6 +14,15 @@ Este proyecto es una plataforma web diseñada para empresas que ofrecen servicio
 ## Resumen
 La plataforma busca digitalizar y optimizar la gestión de rentas de eventos, facilitando el seguimiento de clientes, artículos y servicios, automatizando la generación de cotizaciones y contratos, y mejorando la administración de inventario y agenda.
 
+### Avances recientes (2025-05-13)
+- Integración completa entre frontend (Astro + React) y backend (Laravel API).
+- Listado de clientes en tiempo real desde la API.
+- Formulario para alta de clientes, validación y actualización instantánea.
+- Edición y eliminación en línea de clientes (PATCH y DELETE vía API).
+- Configuración de CORS en Laravel y proxy de Vite para desarrollo local.
+- Corrección de errores de validación y manejo de respuestas de la API.
+- Documentación y estructura de carpetas revisada.
+
 ## Tecnologías
 - **Frontend:** Astro JS
 - **Backend:** Laravel
@@ -59,11 +68,13 @@ cd events-crm
   ```
 
 ### 4. Acceso
-- Frontend: `http://localhost:3000`
-- Backend API: `http://localhost:8000`
+- Frontend: `http://localhost:4321`
+- Backend API: `http://localhost:8001`
 
 ## Fases del Proyecto
 Consulta el archivo [PROJECT-PLAN.md](./PROJECT-PLAN.md) para ver el plan detallado, fases, diagrama de Gantt y módulos.
+
+- En la gestión de clientes ya se puede: listar, crear, editar y eliminar clientes desde la interfaz web conectada a la API.
 
 ## Contribuciones
 ¡Las contribuciones son bienvenidas! Por favor, abre un issue o pull request para sugerir mejoras o reportar bugs.

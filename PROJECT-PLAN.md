@@ -29,7 +29,7 @@ crm-project/
 | Fase | Descripción                | Estado | Fecha Inicio | Fecha Fin |
 |------|----------------------------|--------|--------------|-----------|
 | 1    | Planificación y Diseño     | 🟦     | 2025-05-12   |           |
-| 2    | Configuración del Proyecto | 🟦     | 2025-05-12   |           |
+| 2    | Configuración del Proyecto | ✅     | 2025-05-12   | 2025-05-13 |
 | 3    | Desarrollo de Módulos Base | 🟦     | 2025-05-12   |           |
 | 4    | Integración y Mejoras      | ⬜     |              |           |
 | 5    | Despliegue                 | ⬜     |              |           |
@@ -48,7 +48,16 @@ crm-project/
 - Repositorio y estructura de carpetas inicializada.
 - Backend (Laravel) instalado y funcional, con migraciones, factories y seeders verificados.
 - Base de datos conectada y operativa.
-- Pendiente: inicializar frontend (Astro JS) y agregar instrucciones de instalación/arranque si aún no existen.
+- Frontend (Astro JS) inicializado y listo para desarrollo.
+- Instrucciones de instalación y arranque documentadas en `README.md`.
+
+### Requerimientos No Funcionales
+- **Rendimiento:** El backend debe responder a solicitudes API en menos de 500ms bajo carga normal. El frontend debe cargar la vista inicial en menos de 2 segundos.
+- **Seguridad:** Uso de variables de entorno para credenciales; protección CSRF y CORS en backend; sanitización de entradas.
+- **Escalabilidad:** La arquitectura permite agregar nuevos módulos y entidades sin refactorización mayor.
+- **Mantenibilidad:** Código documentado y estructurado por módulos; uso de control de versiones y convenciones de Laravel/Astro.
+- **Usabilidad:** Interfaz intuitiva y accesible; navegación clara entre módulos.
+- **Portabilidad:** El proyecto puede desplegarse en cualquier entorno compatible con PHP 8+ y Node.js 18+.
 
 ### Diagrama de Gantt (Ejemplo Markdown)
 
@@ -67,10 +76,16 @@ title Plan de Desarrollo Plataforma de Rentas para Eventos
 ## Módulos y Funcionalidades
 
 ### 1. Gestión de Clientes
-- Alta, edición y baja de clientes.
-- Búsqueda y filtrado de clientes.
-- Visualización de historial de rentas/cotizaciones por cliente.
-- Gestión de datos de contacto y notas.
+- Alta, edición y baja de clientes. **(Completado: integración frontend-backend, formulario, edición y eliminación en línea, validación y actualización instantánea)**
+- Búsqueda y filtrado de clientes. *(Pendiente)*
+- Visualización de historial de rentas/cotizaciones por cliente. *(Pendiente)*
+- Gestión de datos de contacto y notas. *(Parcial)*
+
+#### Avances recientes (2025-05-13)
+- CRUD de clientes 100% funcional desde la interfaz web.
+- Edición y eliminación en línea conectadas a la API.
+- Validaciones y mensajes de error claros para el usuario.
+- Mejoras de usabilidad y actualización instantánea de la tabla.
 
 ### 2. Gestión de Artículos y Servicios
 - Alta, edición y baja de artículos/servicios.

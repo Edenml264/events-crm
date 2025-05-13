@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Paquete extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'nombre', 'descripcion', 'precio_paquete', 'notas'
+        'nombre',
+        'descripcion',
+        'precio_paquete',
+        'notas',
     ];
+    use HasFactory;
 
     public function articuloServicios()
     {

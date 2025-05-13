@@ -7,7 +7,109 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Plataforma de Rentas para Eventos
+
+### API RESTful Backend (Laravel)
+
+Este backend provee una API REST para gestionar clientes, artículos/servicios, paquetes, rentas y cotizaciones para un sistema de renta de eventos.
+
+---
+
+## Documentación de Endpoints
+
+### Recursos principales:
+- **Clientes** (`/api/clientes`)
+- **Artículos/Servicios** (`/api/articulos`)
+- **Paquetes** (`/api/paquetes`)
+- **Rentas** (`/api/rentas`)
+- **Cotizaciones** (`/api/cotizaciones`)
+
+---
+
+### Ejemplo de endpoints y métodos
+
+#### Clientes
+| Método | Endpoint                | Descripción           |
+|--------|-------------------------|-----------------------|
+| GET    | /api/clientes           | Listar clientes       |
+| POST   | /api/clientes           | Crear cliente         |
+| GET    | /api/clientes/{id}      | Ver cliente           |
+| PUT    | /api/clientes/{id}      | Actualizar cliente    |
+| DELETE | /api/clientes/{id}      | Eliminar cliente      |
+
+#### Artículos/Servicios
+| Método | Endpoint                | Descripción           |
+|--------|-------------------------|-----------------------|
+| GET    | /api/articulos          | Listar artículos      |
+| POST   | /api/articulos          | Crear artículo        |
+| GET    | /api/articulos/{id}     | Ver artículo          |
+| PUT    | /api/articulos/{id}     | Actualizar artículo   |
+| DELETE | /api/articulos/{id}     | Eliminar artículo     |
+
+#### Paquetes
+| Método | Endpoint                | Descripción           |
+|--------|-------------------------|-----------------------|
+| GET    | /api/paquetes           | Listar paquetes       |
+| POST   | /api/paquetes           | Crear paquete         |
+| GET    | /api/paquetes/{id}      | Ver paquete           |
+| PUT    | /api/paquetes/{id}      | Actualizar paquete    |
+| DELETE | /api/paquetes/{id}      | Eliminar paquete      |
+
+#### Rentas
+| Método | Endpoint                | Descripción           |
+|--------|-------------------------|-----------------------|
+| GET    | /api/rentas             | Listar rentas         |
+| POST   | /api/rentas             | Crear renta           |
+| GET    | /api/rentas/{id}        | Ver renta             |
+| PUT    | /api/rentas/{id}        | Actualizar renta      |
+| DELETE | /api/rentas/{id}        | Eliminar renta        |
+
+#### Cotizaciones
+| Método | Endpoint                | Descripción           |
+|--------|-------------------------|-----------------------|
+| GET    | /api/cotizaciones       | Listar cotizaciones   |
+| POST   | /api/cotizaciones       | Crear cotización      |
+| GET    | /api/cotizaciones/{id}  | Ver cotización        |
+| PUT    | /api/cotizaciones/{id}  | Actualizar cotización |
+| DELETE | /api/cotizaciones/{id}  | Eliminar cotización   |
+
+---
+
+### Ejemplo de petición para crear un cliente
+```json
+POST /api/clientes
+{
+  "nombre": "Juan Pérez",
+  "email": "juan@demo.com",
+  "telefono": "555-1234",
+  "direccion": "Calle Falsa 123"
+}
+```
+
+### Respuesta exitosa
+```json
+{
+  "data": {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "email": "juan@demo.com",
+    "telefono": "555-1234",
+    "direccion": "Calle Falsa 123",
+    "created_at": "2025-05-12T22:00:00.000000Z",
+    "updated_at": "2025-05-12T22:00:00.000000Z"
+  }
+}
+```
+
+---
+
+### Notas
+- Todas las respuestas siguen el formato `{ "data": ... }` o `{ "message": ... }` para errores.
+- Se recomienda usar herramientas como Postman o Insomnia para probar los endpoints.
+- Para detalles de validación y campos requeridos, ver los Form Requests en `app/Http/Requests`.
+
+---
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 

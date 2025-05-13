@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cotizacion extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'cliente_id', 'fecha', 'estado', 'total', 'notas'
+        'cliente_id',
+        'fecha',
+        'estado',
+        'total',
+        'notas',
     ];
+    use HasFactory;
 
     public function cliente()
     {

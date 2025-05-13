@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Renta extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'cliente_id', 'fecha_inicio', 'fecha_fin', 'ubicacion', 'estado', 'notas'
+        'cliente_id',
+        'fecha_inicio',
+        'fecha_fin',
+        'ubicacion',
+        'estado',
+        'notas',
     ];
+    use HasFactory;
 
     public function cliente()
     {
