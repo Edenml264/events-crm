@@ -24,7 +24,23 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'cliente_id' => 'required|integer',
+            'fecha' => 'required|date',
+            'paquetes' => 'nullable|string',
+            'articulos' => 'nullable|string',
+            'total' => 'nullable|numeric',
+            'notas' => 'nullable|string',
+        ]);
+        $cotizacion = Cotizacion::create([
+            'cliente_id' => $validated['cliente_id'],
+            'fecha' => $validated['fecha'],
+            'paquetes' => $validated['paquetes'] ?? null,
+            'articulos' => $validated['articulos'] ?? null,
+            'total' => $validated['total'] ?? 0,
+            'notas' => $validated['notas'] ?? null,
+        ]);
+        return response()->json(['data' => $cotizacion], 201);
     }
 
     /**
@@ -32,7 +48,8 @@ class CotizacionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $cotizacion = Cotizacion::findOrFail($id);
+        return response()->json(['data' => $cotizacion], 200);
     }
 
     /**
@@ -40,7 +57,24 @@ class CotizacionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cotizacion = Cotizacion::findOrFail($id);
+        $validated = $request->validate([
+            'cliente_id' => 'required|integer',
+            'fecha' => 'required|date',
+            'paquetes' => 'nullable|string',
+            'articulos' => 'nullable|string',
+            'total' => 'nullable|numeric',
+            'notas' => 'nullable|string',
+        ]);
+        $cotizacion->update([
+            'cliente_id' => $validated['cliente_id'],
+            'fecha' => $validated['fecha'],
+            'paquetes' => $validated['paquetes'] ?? null,
+            'articulos' => $validated['articulos'] ?? null,
+            'total' => $validated['total'] ?? 0,
+            'notas' => $validated['notas'] ?? null,
+        ]);
+        return response()->json(['data' => $cotizacion], 200);
     }
 
     /**
@@ -48,6 +82,8 @@ class CotizacionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cotizacion = Cotizacion::findOrFail($id);
+        $cotizacion->delete();
+        return response()->json(['message' => 'Cotización eliminada'], 200);
     }
 }

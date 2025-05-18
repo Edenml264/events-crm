@@ -14,6 +14,8 @@ class Articulo extends Model
         'unidad_medida',
         'stock_disponible',
         'activo',
+        'estado',
+        'notas',
     ];
     //
 }

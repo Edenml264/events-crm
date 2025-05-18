@@ -24,18 +24,22 @@ La plataforma busca digitalizar y optimizar la gestión de rentas de eventos, fa
 - Documentación y estructura de carpetas revisada.
 
 ## Tecnologías
-- **Frontend:** Astro JS
+- **Frontend:** Astro JS + React (SPA)
 - **Backend:** Laravel
 - **Base de datos:** MySQL o PostgreSQL
 - **Comunicación:** API REST
 
-## Estructura del Proyecto
+## Estructura del Proyecto (2025-05-18)
 ```
 crm-project/
 ├── backend/        # Laravel
-├── frontend/       # Astro JS
-├── project-idea/   # Imágenes y documentos de referencia
+├── frontend/       # Astro JS + React SPA
+│   ├── src/components/   # Componentes React
+│   ├── src/pages/        # app.astro, app.jsx, index.astro
+│   └── ...
+├── CHANGELOG.md    # Registro de cambios técnicos
 ├── PROJECT-PLAN.md # Plan detallado del proyecto
+├── project-idea/   # Imágenes y documentos de referencia
 └── README.md       # Este archivo
 ```
 
@@ -73,6 +77,22 @@ cd events-crm
 
 ## Fases del Proyecto
 Consulta el archivo [PROJECT-PLAN.md](./PROJECT-PLAN.md) para ver el plan detallado, fases, diagrama de Gantt y módulos.
+
+---
+
+## Buenas prácticas: React en Astro
+
+Para evitar errores de "hydration mismatch" y asegurar la estabilidad de la interfaz, **usa siempre `client:only="react"`** en todos los componentes React que:
+- Consumen datos dinámicos (fetch, API, etc.)
+- Usan lógica dependiente del navegador (`window`, `localStorage`, etc.)
+- Pueden tener diferencias entre el render SSR y el cliente
+
+Ejemplo recomendado:
+```astro
+<MiComponenteReact client:only="react" />
+```
+
+Esto garantiza que el componente solo se renderice en el cliente y no habrá desincronización entre el HTML del servidor y el del navegador.
 
 - En la gestión de clientes ya se puede: listar, crear, editar y eliminar clientes desde la interfaz web conectada a la API.
 

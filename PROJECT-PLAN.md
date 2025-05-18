@@ -10,21 +10,53 @@ Plataforma web para empresas de renta de servicios y artículos para eventos (au
 - Mejorar la administración de inventario y agenda.
 
 ## Tecnologías
-- **Frontend:** Astro JS
+- **Frontend:** Astro JS + React (SPA)
 - **Backend:** Laravel
 - **Base de datos:** MySQL o PostgreSQL
 - **Comunicación:** API REST
 
-## Estructura Inicial del Proyecto
+## Estructura Actual del Proyecto (2025-05-18)
 ```
 crm-project/
 ├── backend/        # Laravel
-├── frontend/       # Astro JS
+├── frontend/       # Astro JS + React (SPA)
+│   ├── src/
+│   │   ├── components/   # Todos los componentes React
+│   │   ├── pages/        # Solo app.astro, app.jsx, index.astro
+│   │   └── ...
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── ...
+├── CHANGELOG.md    # Registro de cambios técnicos
 ├── project-idea/   # Imágenes y documentos de referencia
-└── PROJECT-PLAN.md
+└── Project-plan.md
 ```
 
+### Cambios recientes y refactorización (2025-05-18)
+- Se migró la navegación a una SPA basada en React/Astro bajo `/app`.
+- Sidebar y Header fijos, navegación dinámica entre módulos.
+- Eliminadas páginas y assets obsoletos.
+- Limpieza y optimización de configuración y dependencias.
+- Ver detalles técnicos en `CHANGELOG.md`.
+
 ## Fases y Diagrama de Gantt
+
+---
+
+## Próximos Pasos (tras refactorización SPA)
+
+1. **Búsqueda y filtrado de clientes** en el módulo dinámico de clientes.
+2. **Visualización de historial de rentas/cotizaciones** por cliente (integrar en SPA).
+3. **Mejoras en gestión de contactos y notas** para clientes.
+4. **Avanzar con los módulos de artículos, paquetes, rentas y cotizaciones:**
+   - Alta, edición y baja de artículos/servicios desde la SPA.
+   - Control de inventario y disponibilidad.
+   - Gestión y visualización de rentas y cotizaciones.
+5. **Mejoras de experiencia de usuario (UX):**
+   - Mensajes de éxito/error más amigables.
+   - Mejorar transiciones y feedback visual en la SPA.
+6. **Agregar pruebas (tests) y documentación adicional.**
+7. **Revisión periódica de dependencias y código muerto.**
 
 | Fase | Descripción                | Estado | Fecha Inicio | Fecha Fin |
 |------|----------------------------|--------|--------------|-----------|

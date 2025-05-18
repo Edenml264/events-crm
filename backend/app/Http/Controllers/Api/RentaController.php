@@ -24,7 +24,21 @@ class RentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'cliente_id' => 'required|integer',
+            'fecha' => 'required|date',
+            'paquetes' => 'nullable|string',
+            'articulos' => 'nullable|string',
+            'notas' => 'nullable|string',
+        ]);
+        $renta = Renta::create([
+            'cliente_id' => $validated['cliente_id'],
+            'fecha' => $validated['fecha'],
+            'paquetes' => $validated['paquetes'] ?? null,
+            'articulos' => $validated['articulos'] ?? null,
+            'notas' => $validated['notas'] ?? null,
+        ]);
+        return response()->json(['data' => $renta], 201);
     }
 
     /**
@@ -32,7 +46,8 @@ class RentaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $renta = Renta::findOrFail($id);
+        return response()->json(['data' => $renta], 200);
     }
 
     /**
@@ -40,7 +55,22 @@ class RentaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $renta = Renta::findOrFail($id);
+        $validated = $request->validate([
+            'cliente_id' => 'required|integer',
+            'fecha' => 'required|date',
+            'paquetes' => 'nullable|string',
+            'articulos' => 'nullable|string',
+            'notas' => 'nullable|string',
+        ]);
+        $renta->update([
+            'cliente_id' => $validated['cliente_id'],
+            'fecha' => $validated['fecha'],
+            'paquetes' => $validated['paquetes'] ?? null,
+            'articulos' => $validated['articulos'] ?? null,
+            'notas' => $validated['notas'] ?? null,
+        ]);
+        return response()->json(['data' => $renta], 200);
     }
 
     /**
@@ -48,6 +78,8 @@ class RentaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $renta = Renta::findOrFail($id);
+        $renta->delete();
+        return response()->json(['message' => 'Renta eliminada'], 200);
     }
 }
